@@ -33,3 +33,6 @@ PROFILE_BUTTON = (By.XPATH, "/html/body/div[1]/div/div[1]/div/div[1]/button/svg"
  
 # Локатор для блока "Мои объявления"  
 MY_ADS_BLOCK = (By.XPATH, "//h1[text()='Мои объявления']")
+avatar = (By.CSS_SELECTOR, ".circleSmall, .avatar, [class*='avatar'], [class*='profile']")
+URL = ("https://qa-desk.stand.praktikum-services.ru/") 
+URL_PROFILE = ("https://qa-desk.stand.praktikum-services.ru/profile")

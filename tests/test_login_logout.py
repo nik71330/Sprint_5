@@ -9,7 +9,7 @@ from conftest import driver
 class TestLoginLogout: 
  
     def test_successful_login(self, driver): 
-        driver.get("https://qa-desk.stand.praktikum-services.ru/") 
+        driver.get(URL) 
         driver.find_element(*LOGIN_BUTTON).click() 
         WebDriverWait(driver, 25).until( 
             EC.presence_of_element_located(EMAIL_INPUT) 
@@ -28,7 +28,7 @@ class TestLoginLogout:
  
     def test_logout(self, driver): 
         # Сначала логинимся 
-        driver.get("https://qa-desk.stand.praktikum-services.ru/") 
+        driver.get(URL) 
         driver.find_element(*LOGIN_BUTTON).click() 
         WebDriverWait(driver, 25).until( 
             EC.presence_of_element_located(EMAIL_INPUT) 

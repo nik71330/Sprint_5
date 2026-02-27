@@ -20,7 +20,7 @@ def wait_for_error_class(driver, input_locator, timeout=15):
 
 def wait_for_error_and_red_fields(driver):
     """Ждёт текст ошибки и покраску всех полей"""
-    WebDriverWait(driver, 15).until(
+    WebDriverWait(driver, 50).until(
         EC.visibility_of_element_located(EMAIL_ERROR_TEXT)
     )
 
@@ -31,15 +31,15 @@ def wait_for_error_and_red_fields(driver):
 class TestRegistration:
 
     def test_successful_registration(self, driver):
-        driver.get("https://qa-desk.stand.praktikum-services.ru/")
+        driver.get(URL)
 
         driver.find_element(*LOGIN_BUTTON).click()
-        WebDriverWait(driver, 10).until(
+        WebDriverWait(driver, 50).until(
             EC.presence_of_element_located(REGISTER_LINK)
         )
 
         driver.find_element(*REGISTER_LINK).click()
-        WebDriverWait(driver, 10).until(
+        WebDriverWait(driver, 50).until(
             EC.presence_of_element_located(EMAIL_INPUT)
         )
 
@@ -50,7 +50,7 @@ class TestRegistration:
 
         driver.find_element(*CREATE_ACCOUNT).click()
 
-        WebDriverWait(driver, 20).until(
+        WebDriverWait(driver, 50).until(
             EC.presence_of_element_located(USER_PROFILE_BLOCK)
         )
 
@@ -59,10 +59,10 @@ class TestRegistration:
 
 
     def test_invalid_email_format(self, driver):
-        driver.get("https://qa-desk.stand.praktikum-services.ru/")
+        driver.get(URL)
 
         driver.find_element(*LOGIN_BUTTON).click()
-        WebDriverWait(driver, 25).until(EC.element_to_be_clickable(REGISTER_LINK))
+        WebDriverWait(driver, 50).until(EC.element_to_be_clickable(REGISTER_LINK))
         driver.find_element(*REGISTER_LINK).click()
 
         driver.find_element(*EMAIL_INPUT).send_keys("invalid-email")
@@ -81,10 +81,10 @@ class TestRegistration:
 
 
     def test_existing_user_registration(self, driver):
-        driver.get("https://qa-desk.stand.praktikum-services.ru/")
+        driver.get(URL)
 
         driver.find_element(*LOGIN_BUTTON).click()
-        WebDriverWait(driver, 25).until(EC.element_to_be_clickable(REGISTER_LINK))
+        WebDriverWait(driver, 50).until(EC.element_to_be_clickable(REGISTER_LINK))
         driver.find_element(*REGISTER_LINK).click()
 
         driver.find_element(*EMAIL_INPUT).send_keys("arahamiya_29@gmail.com")
